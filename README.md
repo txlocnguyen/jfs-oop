@@ -1,5 +1,5 @@
 # <a href="https://github.com/txlocnguyen/jfs-oop/blob/main/app.js">ClassInheritancePractice</a>
-Finished. Check it out <a href="https://github.com/txlocnguyen/jfs-oop/blob/main/app.js">here</a><br>
+Finished. Check it out <a href="https://github.com/txlocnguyen/jfs-oop/blob/main/app.js">here</a><br><br>
 Today you work on objects, classes, and inheritance.  To do this, you will work independently on this project.  It should take you about 45 minutes.
 
 For this project you will make three classes: one parent class and two child classes.
