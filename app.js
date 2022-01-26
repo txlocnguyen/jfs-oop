@@ -1,69 +1,56 @@
-class Person {
-    //creates instance of Person with properties name, age, and numBooksRead
-    constructor(name, age, numBooksRead) {
-        this.name = name;
-        this.age = age;
-        this.numBooksRead = numBooksRead;
+class School {
+    constructor(name, numOfStudents, numOfTeachers) {
+        this._name = name;
+        this._numOfStudents = numOfStudents;
+        this._numOfTeachers = numOfTeachers;
     }
-
-    //increments numBooksRead by 1
-    readNewBook() {
-        this.numBooksRead++;
+    admitNewStudent() {
+        this._numOfStudents++;
     }
 }
-
-class Electrician extends Person {
-    //creates instance of Electrician with Person properites plus certifications, an array of strings
-    constructor(name, age, numBooksRead, certifications) {
-        super(name, age, numBooksRead);
-        this.certifications = certifications;
+class MiddleSchool extends School {
+    constructor(name, numOfStudents, numOfTeachers, prestige) {
+        super(name, numOfStudents, numOfTeachers);
+        this._prestige = prestige;
     }
 }
-
-class Teenager extends Person {
-    //creates instance of Teenager with Person properties plus isHungry, a boolean value
-    constructor(name, age, numBooksRead, isHungry = true) {
-        super(name, age, numBooksRead);
-        this.isHungry = isHungry;
+class HighSchool extends School {
+    constructor(name, numOfStudents, numOfTeachers, isClose) {
+        super(name, numOfStudents, numOfTeachers);
+        this._isClose = isClose;
     }
-
-    //feeds the teenager.  If they are hungry, changes isHungry to false, if they are not hungry, prints message to console.
-    eat() {
-        if(this.isHungry) {
-            this.isHungry = false;
+    openSchool() {
+        if (this._isClose) {
+            this._isClose = false;
         } else {
-            console.log('Oh no I think I ate too much')
+            console.log("School already opened!")
         }
     }
 }
 
-//below we will test our classes by instantiating them, calling each method, and verifying output
-
-//create instances of each class
-let person = new Person('Euthyphro', 35, 0);
-let electrician = new Electrician('Zeus', 28, 3, ['Lightning', 'Polymorphism']);
-let teen = new Teenager('Persius', 16, 5, true);
-
-//log each instance
-console.log(person);
-console.log(electrician);
-console.log(teen);
+//testing
+let patriotCharter = new School('Patriot Charter School', 200, 50);
+let riverbank = new MiddleSchool('Riverbank Middle School', 300, 60, true);
+let winterville = new HighSchool('Winterville High School', 500, 100, true)
+console.log(patriotCharter);
+console.log(riverbank);
+console.log(winterville);
 
 //call the method from the parent class to ensure it works as expected
-person.readNewBook();
-electrician.readNewBook();
-teen.readNewBook();
+patriotCharter.admitNewStudent();
+riverbank.admitNewStudent();
+winterville.admitNewStudent();
 
-//log the objects after calling .readNewBook() to verify it worked as intended
-console.log(person);
-console.log(electrician);
-console.log(teen);
+//log the objects after calling .admitNewStudent() to verify it worked as intended
+console.log(patriotCharter);
+console.log(riverbank);
+console.log(winterville);
 
-//call .eat()
-teen.eat();
+//call .openSchool()
+winterville.openSchool()
 
-//check that .eat() when isHungry == true works as expected
-console.log(teen);
+//check that .openSchool() when _isClose == true works as expected
+console.log(winterville);
 
-//check that .eat() when isHungry == false works as expected
-teen.eat();
+//check that .openSchool() when _isClose == false works as expected
+winterville.openSchool();
